@@ -16,6 +16,11 @@ class JobController extends Controller
      $job->ErrorCode=$request->Code;
      $job->StartTime=$request->stime;
      $job->save();
-     return redirect()->back();
+
+     $data=textilestatus::all();
+
+    // dd($data);
+  //  return redirect()->back();
+    return view('index')->with('jobs',$data);
     } 
 }

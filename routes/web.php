@@ -20,7 +20,10 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('index');
+    $data=App\textilestatus::all();
+    
+    return view('index')->with('jobs',$data);
+    //return view('index');
 });
 
 Route::get('/table', function () {

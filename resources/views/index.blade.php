@@ -136,7 +136,7 @@
         </div>
         <div class="card-body">
           <form method="post" action="/savejob">
-          {{csrf_field()}}
+            {{csrf_field()}}
             <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label>Job Line :</label>
@@ -153,12 +153,12 @@
               <div class="col-md-4 mb-3">
                 <label>Start Time :</label>
                 <input type="text" name="stime" class="form-control" placeholder="<?php
-                date_default_timezone_set('Asia/Colombo');
-                $date = date('Y-m-d H:i:s');
-                echo $date; ?>" value="<?php
-                date_default_timezone_set('Asia/Colombo');
-                $date = date('Y-m-d H:i:s');
-                echo $date; ?>" readonly>
+                                                                                  date_default_timezone_set('Asia/Colombo');
+                                                                                  $date = date('Y-m-d H:i:s');
+                                                                                  echo $date; ?>" value="<?php
+                                                                                                          date_default_timezone_set('Asia/Colombo');
+                                                                                                          $date = date('Y-m-d H:i:s');
+                                                                                                          echo $date; ?>" readonly>
               </div>
               <div style="padding-right: 34px;">
               </div>
@@ -180,34 +180,39 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
+                  <th>Line</th>
+                  <th>Error Code</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
+                  <th></th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
+                  <th>Line</th>
+                  <th>Error Code</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
+                  <th></th>
                 </tr>
               </tfoot>
               <tbody>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>Edinburgh</td>
-                  <td>61</td>
-                  <td>2011/04/25</td>
-                  <td>$320,800</td>
-                </tr>
 
+                @foreach($jobs as $job)
+                <tr>
+                  <td>{{$job->Line}}</td>
+                  <td>{{$job->ErrorCode}}</td>
+                  <td>{{$job->StartTime}}</td>
+                  <td>{{$job->EndTime}}</td>
+                  <td>
+                  @if($job->EndTime)
+                  <button class="btn btn-success">Job Done</button>
+                  @else
+                  <button class="btn btn-warning">Job Not Finihed</button>
+                  @endif
+                  </td>
+                </tr>
+                @endforeach
 
               </tbody>
             </table>
