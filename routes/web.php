@@ -35,3 +35,6 @@ Route::get('/chart', function () {
 });
 
 Route::post('/savejob','JobController@add');
+
+
+Route::get('/JobUpdate/{id}','JobController@Update_End_Time');

@@ -208,7 +208,7 @@
                   @if($job->EndTime)
                   <button class="btn btn-success">Job Done</button>
                   @else
-                  <button class="btn btn-warning">Job Not Finihed</button>
+                  <a class="btn btn-warning" href="/JobUpdate/{{$job->id}}">Job Not Finihed</button>
                   @endif
                   </td>
                 </tr>
