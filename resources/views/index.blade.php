@@ -135,7 +135,8 @@
           <h6 class="m-0 font-weight-bold text-primary">Job Errors Form</h6>
         </div>
         <div class="card-body">
-          <form method="post" action="">
+          <form method="post" action="/savejob">
+          {{csrf_field()}}
             <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label>Job Line :</label>
@@ -152,6 +153,9 @@
               <div class="col-md-4 mb-3">
                 <label>Start Time :</label>
                 <input type="text" name="stime" class="form-control" placeholder="<?php
+                date_default_timezone_set('Asia/Colombo');
+                $date = date('Y-m-d H:i:s');
+                echo $date; ?>" value="<?php
                 date_default_timezone_set('Asia/Colombo');
                 $date = date('Y-m-d H:i:s');
                 echo $date; ?>" readonly>

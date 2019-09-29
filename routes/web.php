@@ -30,3 +30,5 @@ Route::get('/table', function () {
 Route::get('/chart', function () {
     return view('Charts');
 });
+
+Route::post('/savejob','JobController@add');
