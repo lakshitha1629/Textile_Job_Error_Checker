@@ -16,8 +16,9 @@ class JobController extends Controller
         $job->ErrorCode = $request->Code;
         $job->StartTime = $request->stime;
         $job->save();
-
-        $data = textilestatus::all()->orderBy('EndTime', 'asc')->get();
+        return redirect()->back();
+        
+        $data = textilestatus::all();
 
         // dd($data);
         //  return redirect()->back();
